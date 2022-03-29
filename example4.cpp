@@ -15,11 +15,16 @@ public:
         foo();
     }
 
+    // void test(){
+    //     foo();
+    // }
+
     ~MyPointer()
     {
-        delete pointer;
+        // delete pointer;
     }
-    int* pointer;
+    // int* pointer;
+    std::unique_ptr<int> pointer;
 };
 
 int main()
@@ -27,7 +32,8 @@ int main()
     try
     {
         MyPointer pointerTest;
-        std::cout << pointerTest.pointer << std::endl;
+        // pointerTest.test();
+        std::cout << pointerTest.pointer.get() << std::endl;
     }
     catch(std::runtime_error const& p_err)
     {
